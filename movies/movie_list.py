@@ -23,7 +23,8 @@ from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
 # ===================== 核心配置 =====================
-EXCEL_FILE_PATH = "movies/影视记录.xlsx"   # Excel 文件路径
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+EXCEL_FILE_PATH = os.path.join(BASE_DIR, "影视记录.xlsx")   # Excel 文件路径
 SHEET_TITLE = "我的影视清单"        # 工作表名称
 
 # 类型 / 地区 / 状态选项（下拉菜单用）

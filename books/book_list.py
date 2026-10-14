@@ -4,7 +4,9 @@ from openpyxl.styles import PatternFill, Font, Alignment, Border, Side, NamedSty
 import os
 
 # ===================== 核心配置 =====================
-EXCEL_FILE_PATH = "books/一生的阅读计划.xlsx"  # Excel文件路径
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))     # 脚本所在目录 books/
+REPO_ROOT = os.path.dirname(BASE_DIR)                     # 仓库根（books 的上一级）
+EXCEL_FILE_PATH = os.path.join(BASE_DIR, "一生的阅读计划.xlsx")  # Excel文件路径
 # 分类/类型/状态选项（下拉菜单用）
 category_options = ["自我成长", "人文哲思", "学习提升", "静心疗愈", "技术深耕", "历史长河", "闲趣杂谈"]
 type_options = ["叙事故事", "干货知识", "散文随笔", "哲学思辨", "技术手册", "历史纪实", "虚构小说"]
@@ -185,15 +187,18 @@ def update_readme(books_data):
     md_table_str = "\n".join(md_table)
 
     # 2. 完整的README内容模板
-    readme_content = f"""# 一生的阅读计划
+    readme_content = f"""# Lifetime-Archive · 一生之藏
 
-这里是我个人的阅读书单管理仓库，记录着漫漫书途中的每一次驻足与收获。
+这里是我个人的内容收藏与记录库：读过的书、追过的文、看过的片、攒下的资料与笔记，都收在这一处。
 
-### 📖 关于本仓库
-本仓库用于存放我的个人阅读计划表「一生的阅读计划.xlsx」，通过结构化的方式管理阅读清单、进度与分类。
+### 🏛️ 关于本仓库
 
-### 📚 我的书库
-以下是当前整理的阅读书单，会随Excel文件同步更新：
+本仓库前身为「一生的阅读计划」，随内容扩展后更名 **Lifetime-Archive · 一生之藏**，内部按类别归置：
+`books/` 书籍、`webnovels/` 网文、`movies/` 影视、`study/` 学习资料、`notes/` 笔记、`typeset/` 排版工程、`backup/` 历史备份。
+
+### 📚 我的书库（books/一生的阅读计划.xlsx）
+
+以下是当前整理的阅读书单，会随 Excel 文件同步更新：
 
 {md_table_str}
 
@@ -218,8 +223,8 @@ def update_readme(books_data):
 期待与你在文字的世界里相遇！
 """
 
-    # 3. 写入/更新README.md文件
-    with open("README.md", "w", encoding="utf-8") as f:
+    # 3. 写入/更新README.md文件（写到仓库根）
+    with open(os.path.join(REPO_ROOT, "README.md"), "w", encoding="utf-8") as f:
         f.write(readme_content)
     print("✅ README.md已同步更新！")
 

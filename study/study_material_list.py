@@ -23,7 +23,8 @@ from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
 # ===================== 核心配置 =====================
-EXCEL_FILE_PATH = "study/学习资料.xlsx"   # Excel 文件路径
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+EXCEL_FILE_PATH = os.path.join(BASE_DIR, "学习资料.xlsx")   # Excel 文件路径
 SHEET_TITLE = "我的学习资料"        # 工作表名称
 
 # 类别 / 状态选项（下拉菜单用）
