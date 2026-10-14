@@ -4,7 +4,7 @@ from openpyxl.styles import PatternFill, Font, Alignment, Border, Side, NamedSty
 import os
 
 # ===================== 核心配置 =====================
-EXCEL_FILE_PATH = "一生的阅读计划.xlsx"  # Excel文件路径
+EXCEL_FILE_PATH = "books/一生的阅读计划.xlsx"  # Excel文件路径
 # 分类/类型/状态选项（下拉菜单用）
 category_options = ["自我成长", "人文哲思", "学习提升", "静心疗愈", "技术深耕", "历史长河", "闲趣杂谈"]
 type_options = ["叙事故事", "干货知识", "散文随笔", "哲学思辨", "技术手册", "历史纪实", "虚构小说"]

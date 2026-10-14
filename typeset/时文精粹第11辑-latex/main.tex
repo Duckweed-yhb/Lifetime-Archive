@@ -1,0 +1,108 @@
+% ============================================================
+% 《作文素材·时文精粹》第11辑（2022年版） LaTeX 多文件工程
+% 主编：谢伶俐 | 出版社：重庆出版社
+% 编译方式：xelatex main.tex（须运行两遍以生成目录/页眉）
+% ============================================================
+\documentclass[11pt,a4paper,openany]{ctexbook}
+
+% ---------- 页面设置 ----------
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.6cm,right=2.6cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+% ---------- 颜色定义（刊物常用蓝橙配色） ----------
+\definecolor{zhubian}{RGB}{30,96,166}    % 主标题蓝
+\definecolor{secblue}{RGB}{22,126,196}   % 栏目蓝
+\definecolor{org}{RGB}{217,110,20}       % 强调橙
+\definecolor{lightgray}{RGB}{245,245,245}
+
+% ---------- 页眉页脚 ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{secblue} 作文素材·时文精粹·第11辑}
+\fancyhead[R]{\small\leftmark}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{secblue}\hrule width\headwidth height 0.4pt}
+
+% ---------- 章节样式 ----------
+\titleformat{\chapter}[display]
+  {\centering\Large\bfseries\color{secblue}}
+  {\filright\color{org}\Large 栏目}
+  {6pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-20pt}{24pt}
+
+\titleformat{\section}
+  {\large\bfseries\color{zhubian}}
+  {\thesection}{0.6em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+% ---------- 自定义环境 ----------
+% 文章作者行
+\newcommand{\auth}[1]{\begin{center}\small\color{gray}#1\end{center}}
+% 引语框（素材引文、赏句录、名言）
+\newenvironment{quoteBox}[1]{%
+  \begin{center}\small\color{secblue}\bfseries #1\end{center}%
+  \begin{quote}\small\color{black!85}}
+{\end{quote}}
+% 得分点/批注（右对齐灰框）
+\newcommand{\score}[1]{\par\noindent\hfill\footnotesize\color{secblue}({#1})\par\vspace{4pt}}
+% 栏目章标题（不编号）
+\newcommand{\colchapter}[1]{\chapter*{#1}\markboth{#1}{#1}\addcontentsline{toc}{chapter}{#1}}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=secblue,
+  urlcolor=org,
+  bookmarksopen=true,
+  pdftitle={作文素材·时文精粹·第11辑（2022年版）},
+  pdfauthor={谢伶俐 主编}
+}
+
+\setstretch{1.25}
+
+\begin{document}
+
+% ---------- 封面 ----------
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\color{zhubian}\Huge\bfseries 作文素材}\\[6pt]
+{\color{zhubian}\Huge\bfseries 时文精粹}\\[18pt]
+{\color{org}\Large\bfseries 第 11 辑（2022年版）}\\[30pt]
+{\large 谢伶俐\quad 主编}\\[10pt]
+{\normalsize 重庆出版社}\\[80pt]
+{\small 本电子版依据书页照片整理排版，仅供个人学习使用}
+\vfill
+\end{titlepage}
+
+\frontmatter
+\tableofcontents
+
+\mainmatter
+
+% ---------- 正文各栏目 ----------
+\input{00_frontmatter}    % 卷首语
+\input{01_readtoushe}     % 读透社·考场前线
+\input{02_shiwenyan}      % 时文眼·多维立意
+\input{03_sucaiquan}      % 素材圈·领读腔调
+\input{04_jianlishi}      % 鉴历史·文采说
+\input{05_miaoxinzhi}     % 妙新知·逻辑客
+\input{06_shensibian}     % 深思辨·悦读者
+\input{07_langduzhe}      % 朗读者·名言控
+\input{08_jiashifen}      % +10分·阅读与写作
+\input{09_jingdian}       % 经典洞见
+\input{10_yanlun}         % 言论新评议
+\input{11_kaotiguanjianci}% 考题关键词
+\input{12_shidaixiebang}  % 时代写作榜
+\input{13_zhijikaochang}  % 直击考场
+\input{14_bianjixinxiang} % 编辑信箱
+
+\end{document}
